@@ -1,0 +1,29 @@
+{
+  "AddressDescription": "1621 El Camino Real\\nMillbrae, CA 94030\\nBetween Park Place and Santa Inez.",
+  "AllowCarryoutOrders": true,
+  "AllowDeliveryOrders": true,
+  "HolidaysDescription": "",
+  "HoursDescription": "Su-Th 10:30am-12:00am\\nFr-Sa 10:30am-1:00am",
+  "IsDeliveryStore": true,
+  "IsNEONow": false,
+  "IsOnlineCapable": true,
+  "IsOnlineNow": true,
+  "IsOpen": true,
+  "IsSpanish": false,
+  "LanguageLocationInfo": {
+    "es": "Between Park Place and Santa Inez."
+  },
+  "LocationInfo": "Between Park Place and Santa Inez.",
+  "MaxDistance": 1.2,
+  "MinDistance": 1.2,
+  "Phone": "650-871-8780",
+  "ServiceHoursDescription": {
+    "Carryout": "Su-Th 10:30am-12:00am\\nFr-Sa 10:30am-1:00am",
+    "Delivery": "Su-Th 10:30am-12:00am\\nFr-Sa 10:30am-1:00am"
+  },
+  "ServiceIsOpen": {
+    "Carryout": true,
+    "Delivery": true
+  },
+  "StoreID": "8158"
+}
