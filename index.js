@@ -3,6 +3,12 @@ const inquirer = require('inquirer');
 
 require('dotenv').config();
 
+const address = new dominos.Address({
+  Street: process.env.STREET,
+  City: process.env.CITY,
+  Region: process.env.REGION,
+  PostalCode: process.env.POSTAL_CODE
+});
 
 const customer = new dominos.Customer({
   firstName: process.env.FIRST_NAME,
@@ -14,7 +20,7 @@ const customer = new dominos.Customer({
 
 const order = new dominos.Order({
   customer: customer,
-  storeID: 8158,
+  storeID: parseInt(process.env.STORE_ID),
   deliveryMethod: 'Delivery'
 });
 
@@ -26,11 +32,11 @@ const pizza = new dominos.Item({
 
 order.addItem(pizza);
 
-// order.price((price) => {
-//   console.log('====PRICE====')
-//   console.log(price.result['Order'])
-//   console.log('====END PRICE====')
-// });
+order.price((price) => {
+  console.log('====PRICE====')
+  console.log(price.result['Order'])
+  console.log('====END PRICE====')
+});
 
 const cardInfo = new order.PaymentObject({
   Account: order.Amounts.Customer,
@@ -43,20 +49,20 @@ const cardInfo = new order.PaymentObject({
 
 order.Payments.push(cardInfo);
 
-order.validate((result) => {
-  console.log('====VALIDATE====')
-  console.log(result.result['Order'])
-  console.log('====END VALIDATE====')
-});
+// order.validate((result) => {
+//   console.log('====VALIDATE====')
+//   console.log(result.result['Order'])
+//   console.log('====END VALIDATE====')
+// });
 
-inquirer.prompt([{type: 'confirm', name: 'confirm', message: 'place order?'}]).then(
-  (answer) => {
-    if (!answer.confirm) return;
+// inquirer.prompt([{type: 'confirm', name: 'confirm', message: 'place order?'}]).then(
+//   (answer) => {
+//     if (!answer.confirm) return;
 
-    console.log('almost placed order!')
-    // order.place((result) => {
-    //   console.log("Order placed!", result);
-    // });
-  }
-);
+//     console.log('almost placed order!')
+//     // order.place((result) => {
+//     //   console.log("Order placed!", result);
+//     // });
+//   }
+// );
 
